@@ -26,8 +26,31 @@ public class Chapter1 {
             sentence.append(word);
             boolean flag = checkIfStringHasUniqueChars(word.toLowerCase());
             System.out.println("Word "+word+((flag)?" contains unique letters":" contains duplicate letters"));
+            if(!flag) word = removeDuplicateChars(word);
+            System.out.println("After removing duplicate characters "+word);
         }
         return sentence.toString();
+    }
+
+    private String removeDuplicateChars(String word) {
+        if (word == null) {
+            return null;
+        }
+        char[] word_arr = word.toCharArray();
+        int len = word.length();
+        if(len < 2) return word;
+        boolean[] hit = new boolean[256];
+        hit[word_arr[0]] = true;
+        int tail = 1;
+        for(int i=1;i<len;++i){
+            if(!hit[word_arr[i]]){
+                word_arr[tail]=word_arr[i];
+                ++tail;
+                hit[word_arr[i]]=true;
+            }
+        }
+        word_arr[tail]=0;
+        return new String(word_arr);
     }
 
     /**
@@ -37,9 +60,9 @@ public class Chapter1 {
      * @return boolean value true if word contains unique characters else false
      */
     public boolean checkIfStringHasUniqueChars(String word) {
-        boolean[] char_set = new boolean[256];
+        boolean[] char_set = new boolean[26];
         for(int i=0;i<word.length();i++){
-            int val = word.charAt(i);
+            int val = word.charAt(i)-'a';
             if(char_set[val]) return false;
             char_set[val] = true;
         }
