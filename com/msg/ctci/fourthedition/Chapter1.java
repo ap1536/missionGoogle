@@ -78,4 +78,17 @@ public class Chapter1 {
         }
         return true;
     }
+
+    public void replaceSpaceFun(String replaceSpace) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : replaceSpace.toCharArray()) {
+            if (c == ' ') {
+                sb.append("%20");
+            }else{
+                sb.append(c);
+            }
+        }
+        System.out.println("Sentence after replacing spaces with %20 :");
+        System.out.println(sb);
+    }
 }
