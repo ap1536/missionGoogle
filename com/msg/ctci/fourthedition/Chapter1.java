@@ -26,31 +26,25 @@ public class Chapter1 {
             sentence.append(word);
             boolean flag = checkIfStringHasUniqueChars(word.toLowerCase());
             System.out.println("Word "+word+((flag)?" contains unique letters":" contains duplicate letters"));
-            if(!flag) word = removeDuplicateChars(word);
-            System.out.println("After removing duplicate characters "+word);
+            if(!flag){
+                word = removeDuplicateChars(word.toLowerCase());
+                System.out.println("  --  After removing duplicate characters new word is : "+word);
+            }
         }
         return sentence.toString();
     }
 
     private String removeDuplicateChars(String word) {
-        if (word == null) {
-            return null;
-        }
-        char[] word_arr = word.toCharArray();
+        StringBuilder new_word = new StringBuilder();
         int len = word.length();
-        if(len < 2) return word;
-        boolean[] hit = new boolean[256];
-        hit[word_arr[0]] = true;
-        int tail = 1;
-        for(int i=1;i<len;++i){
-            if(!hit[word_arr[i]]){
-                word_arr[tail]=word_arr[i];
-                ++tail;
-                hit[word_arr[i]]=true;
+
+        for (int i = 0; i < len; i++) {
+            char c = word.charAt(i);
+            if(new_word.toString().indexOf(c) < 0){
+                new_word.append(c);
             }
         }
-        word_arr[tail]=0;
-        return new String(word_arr);
+        return new_word.toString();
     }
 
     /**
