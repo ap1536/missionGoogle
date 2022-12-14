@@ -2,6 +2,9 @@ package com.msg.ctci;
 
 import com.msg.ctci.fourthedition.Chapter1;
 
+/**
+ * Main method. Begining of CTCI
+ */
 public class Main {
     public static void main(String[] args){
         System.out.println("Hello Google!!");
