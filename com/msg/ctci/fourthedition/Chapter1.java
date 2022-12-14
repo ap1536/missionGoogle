@@ -37,7 +37,6 @@ public class Chapter1 {
     private String removeDuplicateChars(String word) {
         StringBuilder new_word = new StringBuilder();
         int len = word.length();
-
         for (int i = 0; i < len; i++) {
             char c = word.charAt(i);
             if(new_word.toString().indexOf(c) < 0){
@@ -59,6 +58,23 @@ public class Chapter1 {
             int val = word.charAt(i)-'a';
             if(char_set[val]) return false;
             char_set[val] = true;
+        }
+        return true;
+    }
+
+    public boolean isAnagram(String str1, String str2) {
+        if(str1.length() != str2.length()) {
+            return false;
+        }
+        int[] char_arr = new int[256];
+        for (int i = 0; i < str1.length(); i++) {
+            char_arr[str1.charAt(i)]++;
+            char_arr[str2.charAt(i)]--;
+        }
+        for (int j : char_arr) {
+            if (j != 0) {
+                return false;
+            }
         }
         return true;
     }
