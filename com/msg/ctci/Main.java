@@ -26,6 +26,7 @@ public class Main {
         ch1.replaceSpaceFun(replaceSpace);
 
         //1.6 roate image by 90 degrees clockwise
+        // matrix can be of any size
         int[][] imageOriginal = {{1,2,3},{4,5,6},{7,8,9}};
         ch1.rotateImage(imageOriginal);
     }

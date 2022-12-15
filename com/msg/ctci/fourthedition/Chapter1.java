@@ -93,6 +93,8 @@ public class Chapter1 {
     }
 
     public void rotateImage(int[][] imageOriginal) {
+        for (int i = 0; i <imageOriginal.length; i++) {
 
+        }
     }
 }
