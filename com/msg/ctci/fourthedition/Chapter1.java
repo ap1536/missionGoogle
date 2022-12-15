@@ -91,4 +91,8 @@ public class Chapter1 {
         System.out.println("Sentence after replacing spaces with %20 :");
         System.out.println(sb);
     }
+
+    public void rotateImage(int[][] imageOriginal) {
+
+    }
 }
